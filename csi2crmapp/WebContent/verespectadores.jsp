@@ -35,7 +35,7 @@ for (int i=0; i<tablares.length;i++) {
 	 <td> <%=e.getIdEspectador() %> </td>
 	 <td> <%=e.getNombre() %> </td>
 	 <td> <%=e.getApellidos() %> </td>
-	 <td> <%=e.getFechaNac() %> </td>
+	 <td> <%=e.getFechaNac() %> </td> 
 	 </tr> <% 
 }
 %>

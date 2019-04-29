@@ -9,12 +9,21 @@ public class Espectadores {
 	
 	
 	public Espectadores(String idEspectador, String nombre, String apellidos, String fechaNac) {
+		super();
 		this.idEspectador = idEspectador;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.fechaNac = fechaNac;
 	}
 
+	
+	public Espectadores(String idEspectador, String nombre, String apellidos) {
+		super();
+		this.idEspectador = idEspectador;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.fechaNac = "01/01/1991";
+	}
 
 	public String getIdEspectador() {
 		return idEspectador;
