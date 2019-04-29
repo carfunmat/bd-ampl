@@ -14,27 +14,28 @@ try {
 <head>
 </head>
 <body onload="alert('no way!!!');">
-<h1><%=session.getAttribute("usuario") %>: Estos son los datos datos</h1>
+<h1><%=session.getAttribute("usuario") %>: Estos son los datos</h1>
 <hr/>
 <p><a href="bienvenido.jsp">Página principal</a></p>
 <p><a href="cerrarsesion.jsp">Salir</a></p>
 <hr/>
 <br/>
 <% 
-String query="select idGrupo, Profesores_idProfesor, etapas_idEtapa from grupos";
+String query="select idEspectador, nombre, apellidos, fechaNac from espectadores";
 beanDB basededatos = new beanDB();
 String [][] tablares = basededatos.resConsultaSelectA3(query);
-ArrayList<Grupos> listagrupos = new ArrayList<Grupos>();
+ArrayList<Espectadores> listaespectadores = new ArrayList<Espectadores>();
 for (int i=0; i<tablares.length;i++) {
-	listagrupos.add(new Grupos(tablares[i][0],tablares[i][1],tablares[i][2]));
+	listaespectadores.add(new Espectadores(tablares[i][0],tablares[i][1],tablares[i][2], tablares[i][3]));
 }
 %> 
 <table>
-<% for (Grupos g:listagrupos) { //g es una variable tipo grupo que va recorriendo la lista
+<% for (Espectadores e:listaespectadores) { //g es una variable tipo grupo que va recorriendo la lista
 	%><tr>
-	 <td> <%=g.getIdGrupo() %> </td>
-	 <td> <%=g.getetapa() %> </td>
-	 <td> <%=g.getIdTutor() %> </td>
+	 <td> <%=e.getIdEspectador() %> </td>
+	 <td> <%=e.getNombre() %> </td>
+	 <td> <%=e.getApellidos() %> </td>
+	 <td> <%=e.getFechaNac() %> </td>
 	 </tr> <% 
 }
 %>

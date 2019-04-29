@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>csi2crmapp2</name>
+	<name>csi2crmapp</name>
 	<comment></comment>
 	<projects>
+		<project>mysql-connector-java-5.0.4-bin</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
