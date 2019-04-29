@@ -12,6 +12,7 @@ try {
 %>
 <html>
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body onload="alert('no way!!!');">
 <h1><%=session.getAttribute("usuario") %>: Estos son los datos</h1>
@@ -29,7 +30,7 @@ for (int i=0; i<tablares.length;i++) {
 	listaespectadores.add(new Espectadores(tablares[i][0],tablares[i][1],tablares[i][2], tablares[i][3]));
 }
 %> 
-<table>
+<table class="table table-striped">
 <% for (Espectadores e:listaespectadores) { //g es una variable tipo grupo que va recorriendo la lista
 	%><tr>
 	 <td> <%=e.getIdEspectador() %> </td>
