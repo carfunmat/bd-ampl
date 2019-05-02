@@ -1,14 +1,26 @@
 package objetoscrm;
 
-public class Espectadores {
+public class Espectador {
 
-	private String idEspectador;
+	private Integer idEspectador;
 	private String nombre;
 	private String apellidos;
 	private String fechaNac;
 	
 	
-	public Espectadores(String idEspectador, String nombre, String apellidos, String fechaNac) {
+	public Espectador(String idEspectador, String nombre, String apellidos, String fechaNac) {
+		super();
+		int idEspc;
+		try {
+			idEspc=Integer.parseInt(idEspectador);
+		} catch (Exception e) { idEspc=-1; }
+		this.idEspectador = idEspc;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.fechaNac = fechaNac;
+	}
+	
+	public Espectador(Integer idEspectador, String nombre, String apellidos, String fechaNac) {
 		super();
 		this.idEspectador = idEspectador;
 		this.nombre = nombre;
@@ -17,7 +29,7 @@ public class Espectadores {
 	}
 
 	
-	public Espectadores(String idEspectador, String nombre, String apellidos) {
+	public Espectador(Integer idEspectador, String nombre, String apellidos) {
 		super();
 		this.idEspectador = idEspectador;
 		this.nombre = nombre;
@@ -25,13 +37,8 @@ public class Espectadores {
 		this.fechaNac = "01/01/1991";
 	}
 
-	public String getIdEspectador() {
+	public Integer getIdEspectador() {
 		return idEspectador;
-	}
-
-
-	public void setIdEspectador(String idEspectador) {
-		this.idEspectador = idEspectador;
 	}
 
 

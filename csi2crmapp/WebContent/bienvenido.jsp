@@ -25,14 +25,16 @@ if (!ok)
 	}
 
 %><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Bienvenido</title>
+<title>Página Bienvenida</title>
 </head>
 <body>
 <% if (ok) { %>
 <h1>Bienvenido <%=session.getAttribute("usuario") %></h1>
 Sesión iniciada
 <hr/>
-<a href="verespectadores.jsp">Acceder a los Datos</a><br/>
+<a href="verespectadores.jsp">Datos de los espectadores</a><br/>
+<a href="verclubes.jsp">Datos de los clubes</a><br/>
+<a href="verpartidos.jsp">Partidos</a><br/>
 <br/><br/><a href="cerrarsesion.jsp">Salir</a>
 <% } else { 
 	//AHORA PONGO EL HTML DE SESION INCORRECTA %>
