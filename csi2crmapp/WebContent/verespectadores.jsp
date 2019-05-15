@@ -15,7 +15,7 @@ try {
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<h1><%=session.getAttribute("usuario") %>: Estos son los datos</h1>
+<h1><%=session.getAttribute("usuario") %>Datos de los espectadores</h1>
 <hr/>
 <p><a href="bienvenido.jsp">Página principal</a></p>
 <p><a href="cerrarsesion.jsp">Salir</a></p>
