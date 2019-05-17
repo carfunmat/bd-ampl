@@ -33,7 +33,7 @@ if (!ok)
 Sesión iniciada
 <hr/>
 <a href="verespectadores.jsp">Datos de los espectadores</a><br/>
-<a href="verclubes.jsp">Datos de los clubes</a><br/>
+<a href="verfutbolistas.jsp">Datos de los futbolistas</a><br/>
 <a href="verpartidos.jsp">Partidos</a><br/>
 <br/><br/><a href="cerrarsesion.jsp">Salir</a>
 <% } else { 
