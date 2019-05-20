@@ -24,13 +24,13 @@ try {
 String query="select idEspectador, nombre, apellidos, fechaNac from espectadores";
 beanDB basededatos = new beanDB();
 String [][] tablares = basededatos.resConsultaSelectA3(query);
-ArrayList<Espectadores> listaespectadores = new ArrayList<Espectadores>();
+ArrayList<Espectador> listaespectadores = new ArrayList<Espectador>();
 for (int i=0; i<tablares.length;i++) {
-	listaespectadores.add(new Espectadores(tablares[i][0],tablares[i][1],tablares[i][2], tablares[i][3]));
+	listaespectadores.add(new Espectador(tablares[i][0],tablares[i][1],tablares[i][2], tablares[i][3]));
 }
 %> 
 <table>
-<% for (Espectadores e:listaespectadores) { //g es una variable tipo grupo que va recorriendo la lista
+<% for (Espectador e:listaespectadores) { //g es una variable tipo grupo que va recorriendo la lista
 	%><tr>
 	 <td> <%=e.getIdEspectador() %> </td>
 	 <td> <%=e.getNombre() %> </td>

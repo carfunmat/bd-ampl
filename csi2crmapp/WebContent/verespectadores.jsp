@@ -15,7 +15,7 @@ try {
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<h1><%=session.getAttribute("usuario") %>Datos de los espectadores</h1>
+<h1>Datos de los espectadores</h1>
 <hr/>
 <p><a href="bienvenido.jsp">Página principal</a></p>
 <p><a href="cerrarsesion.jsp">Salir</a></p>
@@ -30,7 +30,13 @@ for (int i=0; i<tablares.length;i++) {
 	listaespectadores.add(new Espectador(tablares[i][0],tablares[i][1],tablares[i][2], tablares[i][3]));
 }
 %> 
+<strong>ESPECTADORES REGISTRADOS</strong>
 <table class="table table-striped">
+<tr>
+	<th>Nombre</th>
+	<th>Apellidos</th>
+	<th>Fecha Nacimiento</th>
+</tr>
 <% for (Espectador e:listaespectadores) {
 	%><tr>
 	 <!-- Agregar cabecera tabla -->
@@ -41,4 +47,34 @@ for (int i=0; i<tablares.length;i++) {
 }
 %>
 </table>
+<br>
+<br>
+<h2>Agregar espectadores</h2>
+<form method="post" action="/csi2crmapp/verespectadores.jsp">
+<label>Nombre: </label>
+<input type="text" name="nombre"><br>
+<label>Apellidos: </label>
+<input type="text" name="apellidos"><br>
+<label>Fecha Nacimiento</label>
+<input type="date" name="fechaNac"><br>
+<button>Enviar</button>
+</form>
+<%
+String nombre = request.getParameter("nombre");
+String apellidos = request.getParameter("apellidos");
+String fechaNac = request.getParameter("fechaNac");
+
+String queryForm;
+tablares = basededatos.resConsultaSelectA3("select count(*) from espectadores");
+Integer numEspectadores = Integer.parseInt(tablares[0][0]);
+
+if(nombre == null || apellidos == null || fechaNac == null || nombre.trim().length() == 0 || apellidos.trim().length() == 0 || fechaNac.trim().length() == 0){
+	queryForm = "";
+} else {
+	numEspectadores++;
+	queryForm = "insert into espectadores values (" + numEspectadores + ", '" + nombre + "', '" + apellidos + "', '" + fechaNac + "')";
+	basededatos.insert(queryForm);
+}
+%>
+
 </body></html>
