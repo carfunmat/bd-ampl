@@ -24,7 +24,7 @@ try {
 String idFut_form_txt = request.getParameter("futbolista");
 Integer idFut_form = Integer.parseInt(idFut_form_txt);
 
-System.out.println(idFut_form_txt);
+// System.out.println(idFut_form_txt);
 
 String query_futbolistas = "select * from futbolistas";
 beanDB basededatos = new beanDB();

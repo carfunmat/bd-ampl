@@ -34,6 +34,7 @@ Sesión iniciada
 <hr/>
 <a href="verespectadores.jsp">Datos de los espectadores</a><br/>
 <a href="verfutbolistas.jsp">Datos de los futbolistas</a><br/>
+<a href="partidos.jsp">Partidos</a><br/>
 <br/><br/><a href="cerrarsesion.jsp">Salir</a>
 <% } else { 
 	//AHORA PONGO EL HTML DE SESION INCORRECTA %>
