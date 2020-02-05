@@ -9,14 +9,17 @@ import java.sql.ResultSetMetaData;
 
 public class beanDB {
 	   // Variables del bean
-	   private Connection cn;   //La conexion a la base de datos
+	// Conexiones a las bases de datos
+	   private Connection cn_datos;   
+	   private Connection cn_usuarios;
 
 	   //----- Metodo que realiza la conexion a la BD
 		public void conectarBD() throws SQLException
 		{
 	        try{
 	        	Class.forName("com.mysql.jdbc.Driver").newInstance();
-	            cn=DriverManager.getConnection("jdbc:mysql://68.183.72.169/futbol","messi","altair321%$");
+	            //cn_datos=DriverManager.getConnection("jdbc:mysql://68.183.72.169/futbol","messi","altair321%$");
+	        	cn_usuarios = DriverManager.getConnection("jdbc:mysql://172.31.38.135/futbol_usuarios", "messi", "altair321%$");
 	        }catch (SQLException e){
 	            System.out.println("Excepcion, en metodo ConectarBD(apertura DSN): " + e.getMessage());
 	        }
@@ -27,7 +30,8 @@ public class beanDB {
 	    public void desconectarBD()
 	    {
 	        try{
-	         	cn.close();
+	         	//cn_datos.close();
+	        	cn_usuarios.close();
 	        }catch (NullPointerException e){
 	        	System.out.println("Excepcion, en metodo DesconectarBD: " + e.getMessage());
 	        }
@@ -47,7 +51,7 @@ public class beanDB {
 	    //System.out.println("CAMBIAR USO DE resConsultaSelect \r\n"+selec);
 	    try{
 	        //Este statement lo creamos así­ porque necesitamos que el result sea scrollable
-	          stmt=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+	          stmt=cn_datos.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
 	          rs=stmt.executeQuery(selec);
 	          boolean hayFilas=rs.last(); //Movemos a la ultima fila para comprobar si hay filas, 
 	          
@@ -94,7 +98,7 @@ public class beanDB {
 		    conectarBD();
 		    try{
 		        //Este statement lo creamos así­ porque necesitamos que el result sea scrollable
-		          stmt=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+		          stmt=cn_datos.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
 		          rs=stmt.executeQuery(selec);
 		          boolean hayFilas=rs.last(); //Movemos a la ultima fila para comprobar si hay filas, 
 	              //result=new String[rs.getRow()][];
@@ -147,7 +151,7 @@ public class beanDB {
 
 		    try{
 		        //Este statement lo creamos así­ porque necesitamos que el result sea scrollable
-		          stmt=cn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+		          stmt=cn_datos.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
 		          rs=stmt.executeQuery(selec);
 		          boolean hayFilas=rs.last(); //Movemos a la ultima fila para comprobar si hay filas, 
 	              //result=new String[rs.getRow()][];
@@ -203,7 +207,7 @@ public class beanDB {
 			}
 			try
 			{
-				stmt=cn.createStatement();
+				stmt=cn_datos.createStatement();
 				stmt.executeUpdate(updateStatement);
 			}
 			catch(SQLException e)
@@ -226,7 +230,7 @@ public class beanDB {
 			}
 			try
 			{
-	      		stmt=cn.createStatement();
+	      		stmt=cn_datos.createStatement();
 				stmt.execute(insertStatement);
 			}
 			catch(SQLException e)
@@ -243,7 +247,7 @@ public class beanDB {
 			Statement stmt=null;
 			try
 			{
-	      		stmt=cn.createStatement();
+	      		stmt=cn_datos.createStatement();
 				stmt.execute(insertStatement);
 			}
 			catch(SQLException e)
@@ -265,7 +269,7 @@ public class beanDB {
 			}
 			try
 			{
-	      		stmt=cn.createStatement();
+	      		stmt=cn_datos.createStatement();
 				stmt.execute(deleteStatement);
 			}
 			catch(SQLException e)
