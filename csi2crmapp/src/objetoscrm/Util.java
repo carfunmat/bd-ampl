@@ -25,5 +25,33 @@ public class Util {
 		}
 		return futbolistas;
 	}
+	
+	public static Boolean compruebaUsuario(String usuario, String pass) {
+		beanDB baseDatos = new beanDB();
+		
+		return false;
+	}
+	
+	public static void insertaUsuario(String usuario, String pass, String nombre, String apellidos) {
+		beanDB baseDatos = new beanDB();
+		
+//		Integer numUsuarios = -1;
+//		try {
+//			
+//			//numUsuarios = Integer.parseInt(baseDatos.resConsultaSelect("select count(idUsuario) from usuarios")[0]);
+//		} catch (NumberFormatException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+		//baseDatos.insert("INSERT INTO `usuarios` (`idUsuario`, `usuario`, `password`, `nombre`, `apellidos`) VALUES (1, \"messi\", AES_ENCRYPT('altair123$%','clave1'), \"Lionel\", \"Messi\")");
+		
+		//baseDatos.insert(String.format("INSERT INTO `usuarios` (`usuario`, `password`, `nombre`, `apellidos`) VALUES ('{0}', AES_ENCRYPT('{1}','clave1'), '{2}', '{3}')", usuario, pass, nombre, apellidos ));
+		baseDatos.insertSinConexiones("INSERT INTO `usuarios` (`usuario`, `password`, `nombre`, `apellidos`) VALUES ('" + usuario + "' , AES_ENCRYPT('" + pass + "', 'clave1'), '" + nombre + "', '" + apellidos + "'");
+		System.out.println("Se ha introducido el usuario con éxito");
+	}
 
 }

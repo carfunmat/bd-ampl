@@ -68,5 +68,7 @@ Usuario:
 		<input type="button" name="send" value="Enviar" onclick="compruebayenvia();"/>
 </td></tr></table>
 </form>
+<p> O bien regístrate como nuevo usuario: </p>
+<a href="registroUsuario.jsp">Nuevo Usuario</a>
 </body>
 </html>
