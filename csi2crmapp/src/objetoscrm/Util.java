@@ -48,10 +48,14 @@ public class Util {
 //		}
 		
 		//baseDatos.insert("INSERT INTO `usuarios` (`idUsuario`, `usuario`, `password`, `nombre`, `apellidos`) VALUES (1, \"messi\", AES_ENCRYPT('altair123$%','clave1'), \"Lionel\", \"Messi\")");
-		
 		//baseDatos.insert(String.format("INSERT INTO `usuarios` (`usuario`, `password`, `nombre`, `apellidos`) VALUES ('{0}', AES_ENCRYPT('{1}','clave1'), '{2}', '{3}')", usuario, pass, nombre, apellidos ));
-		baseDatos.insertSinConexiones("INSERT INTO `usuarios` (`usuario`, `password`, `nombre`, `apellidos`) VALUES ('" + usuario + "' , AES_ENCRYPT('" + pass + "', 'clave1'), '" + nombre + "', '" + apellidos + "'");
-		System.out.println("Se ha introducido el usuario con éxito");
+		try {
+			baseDatos.insert("INSERT INTO `usuarios` (`usuario`, `password`, `nombre`, `apellidos`) VALUES ('" + usuario + "' , AES_ENCRYPT('" + pass + "', 'clave1'), '" + nombre + "', '" + apellidos + "'");
+			System.out.println("Se ha introducido el usuario con éxito");
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }
